@@ -8,14 +8,15 @@ module.exports = [
       './src/quill.mention.js',
     ],
     output: {
-      filename: 'quill.mention.min.js',
+      filename: 'quill.mention.js',
       path: path.resolve(__dirname, 'dist'),
+      libraryTarget: 'umd',
     },
     devServer: {
       contentBase: './src',
     },
     externals: {
-      quill: 'Quill',
+      quill: 'quill',
     },
     module: {
       rules: [
@@ -43,7 +44,7 @@ module.exports = [
       new UglifyJSPlugin({
         extractComments: true,
       }),
-      new ExtractTextPlugin('quill.mention.min.css'),
+      new ExtractTextPlugin('quill.mention.css'),
     ],
   },
 ];
